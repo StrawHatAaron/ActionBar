@@ -1,10 +1,14 @@
 package com.aaronjeromemiller.actionbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +36,40 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_chat_black_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_video_library_black_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_more_horiz_black_24dp);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+
+        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.ic_explore:
+
+                        break;
+                    case R.id.ic_home:
+                        Intent intent = new Intent(MainActivity.this, ActivityHome.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.ic_menu:
+                        Intent intentMenu = new Intent(MainActivity.this, ActivityMenu.class);
+                        startActivity(intentMenu);
+                        break;
+                    case R.id.ic_notify:
+                        Intent intentNotify = new Intent(MainActivity.this, ActivityNotify.class);
+                        startActivity(intentNotify);
+                        break;
+                    case R.id.ic_profile:
+                        Intent intentProfile = new Intent(MainActivity.this, ActivityProfile.class);
+                        startActivity(intentProfile);
+                        break;
+                }
+
+
+                //return false;
+            }
+        });
+
     }
 
     private void setupViewPager(ViewPager viewPager){
