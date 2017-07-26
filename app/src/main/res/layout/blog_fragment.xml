@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
-        android:text="more"
+        android:text="Tab Blog"
         android:layout_marginTop="40dp"
         android:id="@+id/textTabBlog"/>
 

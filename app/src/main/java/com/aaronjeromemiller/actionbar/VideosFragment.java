@@ -1,8 +1,8 @@
 package com.aaronjeromemiller.actionbar;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,7 @@ import android.widget.Toast;
  */
 
 public class VideosFragment extends Fragment {
-    private static final String TAG = "Tab1Fragment";
+    private static final String TAG = "VideosFragment";
 
     private Button btnTEST;
 

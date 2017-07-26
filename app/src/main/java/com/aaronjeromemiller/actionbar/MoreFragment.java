@@ -1,9 +1,5 @@
 package com.aaronjeromemiller.actionbar;
 
-/**
- * Created by aaronmiller on 7/25/17.
- */
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,13 +10,17 @@ import android.widget.Button;
 import android.widget.Toast;
 
 /**
- * Created by User on 2/28/2017.
+ * Created by aaronmiller on 7/25/17.
  */
 
-public class MoreFragment extends Fragment {
-    private static final String TAG = "Tab1Fragment";
+public class MoreFragment extends Fragment{
+    private static final String TAG = "MoreFragment";
 
     private Button btnTEST;
+
+    public MoreFragment() {
+        this.btnTEST = btnTEST;
+    }
 
     @Nullable
     @Override
