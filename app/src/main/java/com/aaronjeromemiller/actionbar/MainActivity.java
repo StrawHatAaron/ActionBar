@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "after Tablayout set");
         Log.d("hey", "unknow files");
         tabLayout.setupWithViewPager(mViewPager);
-
+//change
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_chat_black_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_video_library_black_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_more_horiz_black_24dp);
