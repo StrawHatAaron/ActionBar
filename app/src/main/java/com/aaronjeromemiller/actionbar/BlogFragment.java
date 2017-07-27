@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import static com.aaronjeromemiller.actionbar.R.id.listView;
+
 /**
  * Created by aaronmiller on 7/25/17.
  */
@@ -22,21 +24,22 @@ public class BlogFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.card_layout,container,false);
-        mListView = (ListView) view.findViewById(R.id.listView);
+        View view = inflater.inflate(R.layout.blog_fragment,container,false);
+        mListView = (ListView) view.findViewById(listView);
 
         ArrayList<Card> list = new ArrayList<>();
 
-        list.add(new Card("drawable//" + R.drawable.chickentikkamasala, "Chicken Tikka Masala"));
-        list.add(new Card("drawable//" + R.drawable.heartybeefstew410x274, " Hearty Beef Stew"));
-        list.add(new Card("drawable//" + R.drawable.foodonfork, "Garlic Chicken"));
-        list.add(new Card("drawable//" + R.drawable.heartybeefstew1200x630, "Beef Stew"));
-        list.add(new Card("drawable//" + R.drawable.carneasadalime, "Steak and Lime"));
-        list.add(new Card("drawable//" + R.drawable.yucatanpork, "Yucatan Pulled Pork"));
-        list.add(new Card("drawable//" + R.drawable.carneasadaoverlettuce, "Sliced Steak Over Lettuce"));
+        list.add(new Card("drawable://" + R.drawable.chickentikkamasala, "Chicken Tikka Masala"));
+        list.add(new Card("drawable://" + R.drawable.heartybeefstew410x274, " Hearty Beef Stew"));
+        list.add(new Card("drawable://" + R.drawable.foodonfork, "Garlic Chicken"));
+        list.add(new Card("drawable://" + R.drawable.heartybeefstew1200x630, "Beef Stew"));
+        list.add(new Card("drawable://" + R.drawable.carneasadalime, "Steak and Lime"));
+        list.add(new Card("drawable://" + R.drawable.yucatanpork, "Yucatan Pulled Pork"));
+        list.add(new Card("drawable://" + R.drawable.carneasadaoverlettuce, "Sliced Steak Over Lettuce"));
 
-        CustomListAdapter adapter = new CustomListAdapter(getActivity(), R.layout.activity_main, list);
+        CustomListAdapter adapter = new CustomListAdapter(getActivity(), R.layout.card_layout, list);
         mListView.setAdapter(adapter);
+
         return view;
     }
 }

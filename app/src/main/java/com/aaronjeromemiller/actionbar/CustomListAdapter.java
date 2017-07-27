@@ -1,6 +1,7 @@
 package com.aaronjeromemiller.actionbar;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,14 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.ArrayList;
 
@@ -37,6 +41,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
     private static class ViewHolder {
         TextView title;
         ImageView image;
+        ProgressBar dialog;
     }
 
     /**
@@ -60,6 +65,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 
         //get the persons information
         String title = getItem(position).getTitle();
+        Log.d(TAG, title);
         String imgUrl = getItem(position).getImgURL();
 
         try{
@@ -68,7 +74,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
             final View result;
 
             //ViewHolder object
-            ViewHolder holder;
+            final ViewHolder holder;
 
             if(convertView == null){
                 LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -76,7 +82,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
                 holder= new ViewHolder();
                 holder.title = (TextView) convertView.findViewById(R.id.cardTitle);
                 holder.image = (ImageView) convertView.findViewById(R.id.cardImage);
-
+                holder.dialog = (ProgressBar) convertView.findViewById(R.id.cardProgressDialog);
                 result = convertView;
 
                 convertView.setTag(holder);
@@ -92,8 +98,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 //            result.startAnimation(animation);
            lastPosition = position;
 
-            //title = "What the fuck";
-            //holder.title.setText(title);
+            holder.title.setText(title);
 
             //create the imageloader object
             ImageLoader imageLoader = ImageLoader.getInstance();
@@ -108,7 +113,27 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
                     .showImageOnLoading(defaultImage).build();
 
             //download and display image from url
-            imageLoader.displayImage(imgUrl, holder.image, options);
+            imageLoader.displayImage(imgUrl, holder.image, options, new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String imageUri, View view) {
+                    holder.dialog.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+                }
+
+                @Override
+                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                    holder.dialog.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onLoadingCancelled(String imageUri, View view) {
+
+                }
+            });
 
             return convertView;
         }catch (IllegalArgumentException e){
