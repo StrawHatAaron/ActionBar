@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,20 +42,23 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.ic_explore:
-
-                        break;
-                    case R.id.ic_home:
-                        Intent intent = new Intent(MainActivity.this, ActivityHome.class);
-                        startActivity(intent);
                         break;
                     case R.id.ic_menu:
                         Intent intentMenu = new Intent(MainActivity.this, ActivityMenu.class);
                         startActivity(intentMenu);
+                        break;
+                    case R.id.ic_home:
+                        Intent intentMain = new Intent(MainActivity.this, ActivityHome.class);
+                        startActivity(intentMain);
                         break;
                     case R.id.ic_notify:
                         Intent intentNotify = new Intent(MainActivity.this, ActivityNotify.class);
@@ -65,9 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intentProfile);
                         break;
                 }
-
-
-                //return false;
+                return false;
             }
         });
 

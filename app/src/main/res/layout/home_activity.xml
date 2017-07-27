@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aaronjeromemiller.actionbar.MainActivity"
-    android:background="@color/colorWhite">
+    tools:context="com.aaronjeromemiller.actionbar.MainActivity">
 
 
     <RelativeLayout
@@ -41,10 +40,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="80dp"
                 android:textSize="36sp"
                 android:id="@+id/homeTitle"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:text="Home"
+                android:layout_marginTop="30dp"/>
 
         </RelativeLayout>
 
@@ -60,7 +60,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/botNavViewBar"
                 android:background="@drawable/border_bottom"
-                app:menu="@menu/bottom_navigation_menu">
+                app:menu="@menu/bottom_navigation_menu"
+                android:visibility="visible">
 
             </android.support.design.widget.BottomNavigationView>
 
