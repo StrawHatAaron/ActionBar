@@ -92,7 +92,8 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 //            result.startAnimation(animation);
            lastPosition = position;
 
-            holder.title.setText(title);
+            //title = "What the fuck";
+            //holder.title.setText(title);
 
             //create the imageloader object
             ImageLoader imageLoader = ImageLoader.getInstance();

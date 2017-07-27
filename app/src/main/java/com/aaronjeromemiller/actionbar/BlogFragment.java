@@ -22,7 +22,7 @@ public class BlogFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.blog_fragment,container,false);
+        View view = inflater.inflate(R.layout.card_layout,container,false);
         mListView = (ListView) view.findViewById(R.id.listView);
 
         ArrayList<Card> list = new ArrayList<>();
