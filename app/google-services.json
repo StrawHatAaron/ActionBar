@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "261568222589",
+    "firebase_url": "https://freeze-dried-foods.firebaseio.com",
+    "project_id": "freeze-dried-foods",
+    "storage_bucket": "freeze-dried-foods.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261568222589:android:d1f73784d3b6f7ab",
+        "android_client_info": {
+          "package_name": "com.aaronjeromemiller.actionbar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261568222589-7kdpqn4fvijmnurrq4c0uslpvoer7qaj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aaronjeromemiller.actionbar",
+            "certificate_hash": "8fa420e1ffa7b05c1d48d9d984344406c20ab218"
+          }
+        },
+        {
+          "client_id": "261568222589-6v30bd2a1obpsqnfjkbqip4b11maqcq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVF2axF9GFu_CUkGx7ecZlhBuCBr8ltBs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261568222589-6v30bd2a1obpsqnfjkbqip4b11maqcq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

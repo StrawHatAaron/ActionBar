@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -18,11 +19,16 @@ public class VideosFragment extends Fragment {
 
     private Button btnTEST;
 
+    private TextView title;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.videos_fragment,container,false);
         btnTEST = (Button) view.findViewById(R.id.btnTEST);
+
+        title = (TextView) view.findViewById(R.id.textTabVideos);
+        title.setText("Tab Videos");
 
         btnTEST.setOnClickListener(new View.OnClickListener() {
             @Override
