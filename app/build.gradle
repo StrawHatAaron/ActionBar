@@ -9,6 +9,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -35,6 +36,8 @@ dependencies {
     compile 'com.amazonaws:aws-android-sdk-core:2.2.+'
     compile 'com.amazonaws:aws-android-sdk-s3:2.2.+'
     compile 'com.amazonaws:aws-android-sdk-ddb:2.2.+'
+    compile 'com.android.support:multidex:1.0.0'
+
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'
