@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
+
 /**
  * Created by aaronmiller on 7/26/17.
  */
@@ -40,17 +42,17 @@ public class ActivityNotify extends AppCompatActivity {
                         startActivity(new Intent(ActivityNotify.this, MainActivity.class));
                         break;
                     case R.id.ic_menu:
-                        Intent intentNotify = new Intent(ActivityNotify.this, ActivityMenu.class);
+                        Intent intentNotify = new Intent(ActivityNotify.this, MenuActivity.class);
                         startActivity(intentNotify);
                         break;
                     case R.id.ic_home:
-                        Intent intentMenu = new Intent(ActivityNotify.this, ActivityHome.class);
+                        Intent intentMenu = new Intent(ActivityNotify.this, HomeActivity.class);
                         startActivity(intentMenu);
                         break;
                     case R.id.ic_notify:
                         break;
                     case R.id.ic_profile:
-                        Intent intentProfile = new Intent(ActivityNotify.this, ActivityProfile.class);
+                        Intent intentProfile = new Intent(ActivityNotify.this, ProfileActivity.class);
                         startActivity(intentProfile);
                         break;
                 }
