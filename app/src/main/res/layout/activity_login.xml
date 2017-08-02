@@ -67,9 +67,6 @@
             android:id="@+id/link_singup"
             android:textColor="@color/colorPrimary"/>
 
-
-
-
     </LinearLayout>
     
     <ProgressBar

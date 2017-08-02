@@ -38,13 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setupBottomNavigationView();
-
         setupFirebaseAuth();
-
-        
-
-
+        setupBottomNavigationView();
     }
 
 
@@ -131,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out fuck");
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
             }
         };
@@ -143,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         if (user == null){
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
+            Log.d(TAG, "checkCurrentUser: user is not logged in");
         }
     }
 

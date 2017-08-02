@@ -40,7 +40,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate: not started");
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate: Started");
         setContentView(R.layout.activity_login);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mPleaseWait = (TextView) findViewById(R.id.loading_please_wait);
@@ -142,7 +144,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
 
+        Log.d(TAG,"Before Link sign up");
         TextView linkSignUp = (TextView) findViewById(R.id.link_singup);
+        Log.d(TAG,"linkSignup created");
         linkSignUp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
