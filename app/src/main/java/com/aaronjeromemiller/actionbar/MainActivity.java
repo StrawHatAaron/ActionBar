@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         setupFirebaseAuth();
         setupBottomNavigationView();
+
+        mAuth.signOut();
     }
 
 

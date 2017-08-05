@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.aaronjeromemiller.actionbar.R;
 import com.aaronjeromemiller.actionbar.models.User;
+import com.aaronjeromemiller.actionbar.models.UserAccountSettings;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -48,7 +49,7 @@ public class FirebaseMethods {
 
         User user = new User();
 
-        for(DataSnapshot ds: dataSnapshot.getChildren()){
+        for(DataSnapshot ds: dataSnapshot.child(userID).getChildren()){
             Log.d(TAG, "doesUsernameExist: datasnapshot " + ds);
 
             user.setUsername(ds.getValue(User.class).getUsername());
@@ -92,6 +93,20 @@ public class FirebaseMethods {
         mDatabaseReference.child(mContext.getString(R.string.dbname_users))
                 .child(userID)
                 .setValue(user);
+
+        UserAccountSettings settings = new UserAccountSettings(
+                description,
+                username,
+                "",
+                0,
+                "",
+                username);
+
+        mDatabaseReference.child(mContext.getString(R.string.dbname_user_account_settings))
+                .child(userID)
+                .setValue(settings);
     }
+
+
 
 }

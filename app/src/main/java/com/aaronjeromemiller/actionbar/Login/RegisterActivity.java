@@ -148,13 +148,17 @@ public class RegisterActivity extends AppCompatActivity {
                             //1st check: Make sure the username is not already in use
                             if(mFirebaseMethods.doesUsernameExist(username, dataSnapshot)){
                                 //Change this and tell them to choose a different username
-                                append = mDatabaseReference.push().getKey().substring(0, 23);
-                                Log.d(TAG, "onDataChange: username already exists. Appending random string to name" + append);
+                                Toast.makeText(mContext, "All fields must be filled out.", Toast.LENGTH_SHORT).show();
+                                //append = mDatabaseReference.push().getKey().substring(0, 23);
+                                Log.d(TAG, "onDataChange: username already exists." + append);
                             }
-                            username = username + append;
-                            //add new "user" to the database
+                            //username = username + append;
 
+                            //add new "user" to the database
+                            mFirebaseMethods.addNewUser(email, username, "", "", "");
+                            Toast.makeText(mContext, "Adding new user to database", Toast.LENGTH_SHORT).show();
                             //add new "user_account" setting to the database
+
 
                         }
                         //error
