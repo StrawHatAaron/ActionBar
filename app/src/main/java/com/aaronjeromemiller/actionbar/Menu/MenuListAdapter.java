@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.aaronjeromemiller.actionbar.Menu.Menu;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -21,15 +22,13 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
-import com.aaronjeromemiller.actionbar.Card;
-
 import java.util.ArrayList;
 
 /**
- * Created by User on 4/4/2017.
+ * Created by User on 8/5/2017.
  */
 
-public class CustomListAdapter  extends ArrayAdapter<Card> {
+public class MenuListAdapter extends ArrayAdapter<Menu> {
 
     private static final String TAG = "CustomListAdapter";
 
@@ -42,6 +41,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
      */
     private static class ViewHolder {
         TextView title;
+        TextView description;
         ImageView image;
         ProgressBar dialog;
     }
@@ -52,7 +52,7 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
      * @param resource
      * @param objects
      */
-    public CustomListAdapter(Context context, int resource, ArrayList<Card> objects) {
+    public MenuListAdapter(Context context, int resource, ArrayList<Menu> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
@@ -66,11 +66,13 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         //get the persons information
-        String title = getItem(position).getTitle();
+        String title = getItem(position).getFoodCardTitle();
         Log.d(TAG, title);
-        String imgUrl = getItem(position).getImgURL();
+        String imgUrl = getItem(position).getFoodCardImage();
+        String description = getItem(position).getFoodCardDescription();
 
-        try{
+
+            try{
 
             //create the view result for showing the animation
             final View result;
@@ -82,8 +84,9 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
                 LayoutInflater inflater = LayoutInflater.from(mContext);
                 convertView = inflater.inflate(mResource, parent, false);
                 holder= new ViewHolder();
-                holder.title = (TextView) convertView.findViewById(R.id.cardTitle);
-                holder.image = (ImageView) convertView.findViewById(R.id.cardImage);
+                holder.title = (TextView) convertView.findViewById(R.id.food_card_title);
+                holder.image = (ImageView) convertView.findViewById(R.id.food_card_image);
+                holder.description = (TextView) convertView.findViewById(R.id.food_card_description);
                 holder.dialog = (ProgressBar) convertView.findViewById(R.id.cardProgressDialog);
                 result = convertView;
 
@@ -98,14 +101,14 @@ public class CustomListAdapter  extends ArrayAdapter<Card> {
 //            Animation animation = AnimationUtils.loadAnimation(mContext,
 //                    (position > lastPosition) ? R.anim.load_down_anim : R.anim.load_up_anim);
 //            result.startAnimation(animation);
-           lastPosition = position;
+            lastPosition = position;
 
             holder.title.setText(title);
 
             //create the imageloader object
             ImageLoader imageLoader = ImageLoader.getInstance();
 
-            int defaultImage = mContext.getResources().getIdentifier("@drawable/ic_clear_black_24dp_cant_load",null,mContext.getPackageName());
+            int defaultImage = mContext.getResources().getIdentifier("@colors/colorWhite",null,mContext.getPackageName());
 
             //create display options
             DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)

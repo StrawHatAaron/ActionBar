@@ -5,12 +5,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/blog_list_view"
-        android:layout="@layout/card_layout">
+        android:id="@+id/menu_list_view"
+        android:longClickable="true"
+        android:layout="@layout/menu_layout">
 
     </ListView>
 </RelativeLayout>

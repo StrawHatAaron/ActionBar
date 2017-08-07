@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.aaronjeromemiller.actionbar.Login.LoginActivity;
+import com.aaronjeromemiller.actionbar.Menu.MenuActivity;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 import com.aaronjeromemiller.actionbar.Utils.SectionsPagerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         setupFirebaseAuth();
         setupBottomNavigationView();
 
-        mAuth.signOut();
+        //signs out person on the device
+        //when explore button is clicked it will sign the user back out
+        //mAuth.signOut();
     }
 
 
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     //setup firebase authentication
     private void setupFirebaseAuth() {
 
-        Log.d(TAG, "setupFireBaseAuth: setting up firebase auth fuck!");
+        Log.d(TAG, "setupFireBaseAuth: setting up firebase auth!");
 
         mAuth = FirebaseAuth.getInstance();
 

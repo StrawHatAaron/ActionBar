@@ -1,21 +1,35 @@
-package com.aaronjeromemiller.actionbar;
+package com.aaronjeromemiller.actionbar.Menu;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.aaronjeromemiller.actionbar.ActivityNotify;
+import com.aaronjeromemiller.actionbar.HomeActivity;
+import com.aaronjeromemiller.actionbar.MainActivity;
+import com.aaronjeromemiller.actionbar.ProfileActivity;
+import com.aaronjeromemiller.actionbar.R;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
+import com.aaronjeromemiller.actionbar.Utils.SectionsPagerAdapter;
 
 /**
  * Created by aaronmiller on 7/26/17.
  */
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity  extends AppCompatActivity {
+
+    private final String TAG = "MenuActivity";
+
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private ViewPager mViewPager;
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +38,14 @@ public class MenuActivity extends AppCompatActivity {
 
         TextView title = (TextView) findViewById(R.id.menuTitle);
         title.setText("Menu");
+
+//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        setupViewPager(mViewPager);
+
+        //try to setup onClickListener for all items in the array
+
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -42,7 +64,6 @@ public class MenuActivity extends AppCompatActivity {
                         startActivity(new Intent(MenuActivity.this, MainActivity.class));
                         break;
                     case R.id.ic_menu:
-
                         break;
                     case R.id.ic_home:
                         Intent intentMenu = new Intent(MenuActivity.this, HomeActivity.class);
@@ -60,5 +81,13 @@ public class MenuActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new MenuFragment());
+        //adapter.addFragment(new com.aaronjeromemiller.actionbar.VideosFragment());
+        //adapter.addFragment(new com.aaronjeromemiller.actionbar.MoreFragment());
+        viewPager.setAdapter(adapter);
     }
 }

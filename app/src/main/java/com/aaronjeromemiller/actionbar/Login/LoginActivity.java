@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aaronjeromemiller.actionbar.MainActivity;
+import com.aaronjeromemiller.actionbar.Menu.MenuActivity;
 import com.aaronjeromemiller.actionbar.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -136,6 +136,9 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_success), Toast.LENGTH_SHORT).show();
                                         mProgressBar.setVisibility(View.GONE);
                                         mPleaseWait.setVisibility(View.GONE);
+                                        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                        startActivity(intent);
+                                        finish();
                                     }
                                 }
                             });
@@ -159,9 +162,9 @@ public class LoginActivity extends AppCompatActivity {
 
         //if the user is logged in then go to MainActivity
         if(mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+//            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+//            startActivity(intent);
+//            finish();
         }
     }
 
