@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.aaronjeromemiller.actionbar.Login.LoginActivity;
+import com.aaronjeromemiller.actionbar.Profile.ProfileActivity;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 import com.aaronjeromemiller.actionbar.Utils.SectionsPagerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,12 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setupBottomNavigationView();
 
         setupFirebaseAuth();
-
-        
-
-
     }
-
 
     private void setupBottomNavigationView(){
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -59,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "after Tablayout set");
         Log.d("hey", "unknow files");
         tabLayout.setupWithViewPager(mViewPager);
-//change
+        //change
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_chat_black_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_video_library_black_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_more_horiz_black_24dp);

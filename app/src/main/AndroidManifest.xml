@@ -22,9 +22,11 @@
         <activity android:name=".MenuActivity"></activity>
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".ActivityNotify"></activity>
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".Profile.ProfileActivity"></activity>
         <activity android:name=".Login.LoginActivity"></activity>
         <activity android:name=".Login.RegisterActivity"></activity>
+        <activity android:name=".Profile.AccountSettingsActivity"></activity>
+
     </application>
 
 </manifest>

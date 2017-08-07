@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.aaronjeromemiller.actionbar.Profile.ProfileActivity;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 
 /**

@@ -14,22 +14,7 @@
         android:layout_height="match_parent"
         android:id="@+id/relLayout">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/relLayoutTopBar"
-            android:layout_alignParentTop="true">
-
-            <android.support.design.widget.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-
-            </android.support.design.widget.AppBarLayout>
-
-        </RelativeLayout>
-
+        <include layout="@layout/layout_center_profile"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -41,11 +26,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="80dp"
+                android:text="Settings"
                 android:textSize="36sp"
-                android:id="@+id/profileTitle"
-                android:text="Profile"
-                android:textAlignment="center"/>
+                android:id="@+id/profileTitle"/>
+                android:textAlignment="center" />
 
         </RelativeLayout>
 

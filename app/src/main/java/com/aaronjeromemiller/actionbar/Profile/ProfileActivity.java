@@ -1,32 +1,59 @@
-package com.aaronjeromemiller.actionbar;
+package com.aaronjeromemiller.actionbar.Profile;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.aaronjeromemiller.actionbar.ActivityNotify;
+import com.aaronjeromemiller.actionbar.HomeActivity;
+import com.aaronjeromemiller.actionbar.MainActivity;
+import com.aaronjeromemiller.actionbar.MenuActivity;
+import com.aaronjeromemiller.actionbar.R;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
+import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewEx;
+
+import static android.R.attr.onClick;
 
 /**
  * Created by aaronmiller on 7/26/17.
  */
 
-public class ProfileActivity extends AppCompatActivity {
 
+public class ProfileActivity extends AppCompatActivity
+{
+    private static final String TAG = "ProfileActivity";
+    private TextView title;
+    private Button logoutButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_activity);
+        setContentView(R.layout.activity_profile);
 
+        logoutButton = (Button) findViewById(R.id.btn_logout);
         TextView title = (TextView) findViewById(R.id.profileTitle);
         title.setText("Profile");
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ProfileActivity.this, "Toasted", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(4);
