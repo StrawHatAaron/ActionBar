@@ -18,7 +18,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:id="@+id/relLayoutMiddle"
             android:layout_below="@+id/relLayoutTopBar"
             android:layout_above="@+id/relLayoutBotBar">
