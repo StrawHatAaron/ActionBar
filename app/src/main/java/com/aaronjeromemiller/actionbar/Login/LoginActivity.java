@@ -33,11 +33,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
 
-    /*implements
-        GoogleApiClient.OnConnectionFailedListener,
-        View.OnClickListener{  */
-
-
     private static final String TAG = "LoginActivity";
     private static final int RC_SIGN_IN = 9001;
 
@@ -58,30 +53,21 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Log.d(TAG, "before starting LoginActivity");
         mContext = LoginActivity.this;
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
 
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestIdToken(getString(R.string.default_web_client_id))
-//                .requestEmail()
-//                .build();
-
-        // Build a GoogleApiClient with access to the Google Sign-In API and the
-        // options specified by gso.
-
-//        mGoogleApiClient = new GoogleApiClient.Builder(this)
-//                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
-//                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-//                .build();
-
-        GoogleSignInActivity googleSignInActivity = new GoogleSignInActivity();
+        final GoogleSignInActivity googleSignInActivity = new GoogleSignInActivity();
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mPleaseWait = (TextView) findViewById(R.id.loading_please_wait);
         mEmail = (EditText) findViewById(R.id.input_email);
         mPassword = (EditText) findViewById(R.id.input_password);
         mGoogleSignin = (SignInButton) findViewById(R.id.google_sign_in_button);
-        //mGoogleSignin.setOnClickListener();
+
+        mGoogleSignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                googleSignInActivity.signIn();
+            }
+        });
 
         mProgressBar.setVisibility(View.GONE);
         mPleaseWait.setVisibility(View.GONE);
@@ -105,11 +91,6 @@ public class LoginActivity extends AppCompatActivity {
 ********************************** FIREBASE ***********************************
  */
 
-    private void googleSignIn() {
-        Intent googleSignInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(googleSignInIntent, RC_SIGN_IN);
-
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -122,18 +103,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    /*private void handleSignInResult(GoogleSignInResult result) {
-        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-        if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
-            GoogleSignInAccount acct = result.getSignInAccount();
-            //tatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            updateUI(true);
-        } else {
-            // Signed out, show unauthenticated UI.
-            updateUI(false);
-        }
-    }*/
 
 
 
@@ -164,7 +133,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void init() {
-        //initialize the button
         Button btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -232,7 +200,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    /*public abstract void onConnectionFailed (ConnectionResult result);*/
+
 
     @Override
     public void onStart() {
@@ -248,6 +216,42 @@ public class LoginActivity extends AppCompatActivity {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+}
+
+
+// Configure sign-in to request the user's ID, email address, and basic
+// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+
+// Build a GoogleApiClient with access to the Google Sign-In API and the
+// options specified by gso.
+
+//        mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+//                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+//                .build();
+
+
+ /*private void handleSignInResult(GoogleSignInResult result) {
+        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
+        if (result.isSuccess()) {
+            // Signed in successfully, show authenticated UI.
+            GoogleSignInAccount acct = result.getSignInAccount();
+            //tatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
+            updateUI(true);
+        } else {
+            // Signed out, show unauthenticated UI.
+            updateUI(false);
+        }
+    }*/
+
+     /*implements
+        GoogleApiClient.OnConnectionFailedListener,
+        View.OnClickListener{  */
 
    /* private void updateUI(boolean signedIn) {
         if (signedIn) {
@@ -269,5 +273,12 @@ public class LoginActivity extends AppCompatActivity {
         }
     }*/
 
-}
+   /*public abstract void onConnectionFailed (ConnectionResult result);*/
+
+
+//    private void googleSignIn() {
+//        Intent googleSignInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+//        startActivityForResult(googleSignInIntent, RC_SIGN_IN);
+//
+//    }
 

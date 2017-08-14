@@ -89,4 +89,5 @@
     <!--Facebook-->
     <string name="facebook_app_id">331970493918073</string>
     <string name="fb_login_protocol_scheme">fb331970493918073</string>
+    <string name="action_logout"> Log Out</string>
 </resources>
