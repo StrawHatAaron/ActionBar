@@ -62,12 +62,12 @@ public class LoginActivity extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.input_password);
         mGoogleSignin = (SignInButton) findViewById(R.id.google_sign_in_button);
 
-        mGoogleSignin.setOnClickListener(new View.OnClickListener() {
+        /*mGoogleSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 googleSignInActivity.signIn();
             }
-        });
+        });*/
 
         mProgressBar.setVisibility(View.GONE);
         mPleaseWait.setVisibility(View.GONE);

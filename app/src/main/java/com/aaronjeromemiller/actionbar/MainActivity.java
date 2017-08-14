@@ -12,41 +12,62 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.aaronjeromemiller.actionbar.Login.LoginActivity;
 import com.aaronjeromemiller.actionbar.Menu.MenuActivity;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 import com.aaronjeromemiller.actionbar.Utils.SectionsPagerAdapter;
+import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private static final int ACTIVITY_NUM = 0;
-
     private Context mContext = MainActivity.this;
-
-    //firebase
-    private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     private ViewPager mViewPager;
+
+    private FirebaseAuth auth;
+    private static final int RC_SIGN_IN = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        auth = FirebaseAuth.getInstance();
+        if(auth.getCurrentUser()!=null){
+            //User is already signed in
+        }else {
+            startActivityForResult(AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setProviders(
+                            AuthUI.EMAIL_PROVIDER,
+                            AuthUI.FACEBOOK_PROVIDER,
+                            AuthUI.GOOGLE_PROVIDER)
+                    .build(), RC_SIGN_IN);
+        }
 
-        setupFirebaseAuth();
         setupBottomNavigationView();
-
         //signs out person on the device
         //when explore button is clicked it will sign the user back out
-        mAuth.signOut();
+        auth.signOut();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RC_SIGN_IN){
+            if(resultCode == RESULT_OK){
+                //user logged in
+                Log.d("AUTH", auth.getCurrentUser().getEmail());
+            }
+            else {
+                // not authenticated
+                Log.d("AUTH", "NOT AUTHENTICATED");
+            }
+        }
     }
 
 
@@ -109,12 +130,14 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+
+
 /*
 ********************************** FIREBASE ***********************************
  */
 
     //setup firebase authentication
-    private void setupFirebaseAuth() {
+ /*   private void setupFirebaseAuth() {
 
         Log.d(TAG, "setupFireBaseAuth: setting up firebase auth!");
 
@@ -163,5 +186,6 @@ public class MainActivity extends AppCompatActivity {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+    */
 
 }
