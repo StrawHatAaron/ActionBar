@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
-    private FirebaseAuth auth;
+    public FirebaseAuth auth;
     private static final int RC_SIGN_IN = 0;
 
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         setupBottomNavigationView();
         //signs out person on the device
         //when explore button is clicked it will sign the user back out
-        auth.signOut();
+        //auth.signOut();
     }
 
     @Override
