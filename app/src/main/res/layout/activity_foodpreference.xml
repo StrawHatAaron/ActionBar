@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout= "@layout/snippet_top_accountsettingstoolbar"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is your food preference?"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/grey_border_bottom"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodPreferenceOptions">
+
+        <RadioButton
+            android:id="@+id/radio_vegan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Vegan"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/grey_border_bottom"
+            android:onClick="selectFoodPreference"/>
+
+        <RadioButton
+            android:id="@+id/radio_vegetarian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Vegetarian"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/grey_border_bottom"
+            android:onClick="selectFoodPreference"/>
+
+        <RadioButton
+            android:id="@+id/radio_pescatarian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Pescatarian"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/grey_border_bottom"
+            android:onClick="selectFoodPreference"/>
+
+        <RadioButton
+            android:id="@+id/radio_paleotarian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Paleotarian"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/grey_border_bottom"
+            android:onClick="selectFoodPreference"/>
+
+        <RadioButton
+            android:id="@+id/radio_omnivore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Omnivore"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/grey_border_bottom"
+            android:onClick="selectFoodPreference"/>
+
+        <RadioButton
+            android:id="@+id/radio_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Other "
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/grey_border_bottom"
+            android:onClick="selectFoodPreference"/>
+
+        <TextView
+            android:id="@+id/select_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:background="@drawable/grey_border_bottom"
+            android:layout_marginTop="20dp"
+            android:text="Current Saved Preference: N/A" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="10dp"
+        android:text="Edit Food Preference "
+        android:textSize="16dp"
+        android:id="@+id/link_email"
+        android:textColor="@color/colorPrimary"/>
+
+</LinearLayout>

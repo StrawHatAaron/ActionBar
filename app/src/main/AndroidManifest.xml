@@ -25,10 +25,16 @@
         <activity android:name=".Menu.MenuActivity"></activity>
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".ActivityNotify"></activity>
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".Profile.ProfileActivity"></activity>
         <activity android:name=".Login.LoginActivity"></activity>
         <activity android:name=".Login.RegisterActivity"></activity>
+<<<<<<< HEAD
         <activity android:name=".Login.GoogleSignInActivity"></activity>
+=======
+        <activity android:name=".Profile.AccountSettingsActivity"></activity>
+        <activity android:name=".Profile.FoodPreferenceActivity"></activity>
+
+>>>>>>> profile
     </application>
 
 </manifest>
