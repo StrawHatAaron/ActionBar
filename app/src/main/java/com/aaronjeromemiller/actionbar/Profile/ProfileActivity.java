@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,14 +37,16 @@ public class ProfileActivity extends AppCompatActivity
     private static final String TAG = "ProfileActivity";
     private TextView title;
     private Button logoutButton;
+    private Context mContext = ProfileActivity.this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
         logoutButton = (Button) findViewById(R.id.btn_logout);
-        TextView title = (TextView) findViewById(R.id.profileTitle);
-        title.setText("Profile");
+        //TextView title = (TextView) findViewById(R.id.profileTitle);
+        //title.setText("Profile");
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -86,5 +89,42 @@ public class ProfileActivity extends AppCompatActivity
                 return false;
             }
         });
+
+
+        setupAccountSettingsToolbar();
+        setupFoodPreferenceToolbar();
     }
+
+    // Setting up Account Settings Toolbar
+    private void setupAccountSettingsToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.profileToolBar);
+        setSupportActionBar(toolbar);
+
+        ImageView profileMenu = (ImageView) findViewById(R.id.profileSettings);
+        profileMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Log.d(TAG, "onClick: navigating to account settings.");
+                Intent intent = new Intent(mContext, AccountSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    // Setting up Food Preference Toolbar
+    private void setupFoodPreferenceToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.profileToolBar);
+        setSupportActionBar(toolbar);
+
+        ImageView profileMenu = (ImageView) findViewById(R.id.food_preference);
+        profileMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Log.d(TAG, "onClick: navigating to food preferences.");
+                Intent intent = new Intent(mContext, FoodPreferenceActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 }

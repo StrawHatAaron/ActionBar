@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textSettings"
             android:text="Account Settings"
-            android:textSize="35dp"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:background="@drawable/grey_border_bottom"/>
 
