@@ -9,11 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import com.aaronjeromemiller.actionbar.Menu.MenuActivity;
-=======
+//=======
 import com.aaronjeromemiller.actionbar.Profile.ProfileActivity;
->>>>>>> profile
+//>>>>>>> profile
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 
 /**

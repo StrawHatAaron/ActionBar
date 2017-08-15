@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,12 +19,11 @@ import android.widget.Toast;
 import com.aaronjeromemiller.actionbar.ActivityNotify;
 import com.aaronjeromemiller.actionbar.HomeActivity;
 import com.aaronjeromemiller.actionbar.MainActivity;
-import com.aaronjeromemiller.actionbar.MenuActivity;
+import com.aaronjeromemiller.actionbar.Menu.MenuActivity;
 import com.aaronjeromemiller.actionbar.R;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
-import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewEx;
 
-import static android.R.attr.onClick;
+//import com.aaronjeromemiller.actionbar.MenuActivity;
 
 /**
  * Created by aaronmiller on 7/26/17.

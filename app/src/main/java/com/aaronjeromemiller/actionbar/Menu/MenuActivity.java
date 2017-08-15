@@ -11,15 +11,14 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
-<<<<<<< HEAD:app/src/main/java/com/aaronjeromemiller/actionbar/Menu/MenuActivity.java
+//<<<<<<< HEAD:app/src/main/java/com/aaronjeromemiller/actionbar/Menu/MenuActivity.java
 import com.aaronjeromemiller.actionbar.ActivityNotify;
 import com.aaronjeromemiller.actionbar.HomeActivity;
 import com.aaronjeromemiller.actionbar.MainActivity;
 import com.aaronjeromemiller.actionbar.ProfileActivity;
 import com.aaronjeromemiller.actionbar.R;
-=======
-import com.aaronjeromemiller.actionbar.Profile.ProfileActivity;
->>>>>>> profile:app/src/main/java/com/aaronjeromemiller/actionbar/MenuActivity.java
+//=======
+//>>>>>>> profile:app/src/main/java/com/aaronjeromemiller/actionbar/MenuActivity.java
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 import com.aaronjeromemiller.actionbar.Utils.SectionsPagerAdapter;
 

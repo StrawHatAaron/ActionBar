@@ -12,12 +12,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-<<<<<<< HEAD
 import com.aaronjeromemiller.actionbar.Menu.MenuActivity;
-=======
-import com.aaronjeromemiller.actionbar.Login.LoginActivity;
 import com.aaronjeromemiller.actionbar.Profile.ProfileActivity;
->>>>>>> profile
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 import com.aaronjeromemiller.actionbar.Utils.SectionsPagerAdapter;
 import com.firebase.ui.auth.AuthUI;
@@ -59,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
         //when explore button is clicked it will sign the user back out
         //auth.signOut();
     }
-
-<<<<<<< HEAD
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -74,9 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("AUTH", "NOT AUTHENTICATED");
             }
         }
-=======
-        setupFirebaseAuth();
->>>>>>> profile
     }
 
     private void setupBottomNavigationView(){

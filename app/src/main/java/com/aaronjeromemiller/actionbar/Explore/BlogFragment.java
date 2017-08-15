@@ -29,12 +29,7 @@ public class BlogFragment extends Fragment{
         View view = inflater.inflate(R.layout.blog_fragment,container,false);
         mListView = (ListView) view.findViewById(blog_list_view);
 
-<<<<<<< HEAD
-        ArrayList<com.aaronjeromemiller.actionbar.Card> list;
-        list = new ArrayList<>();
-=======
         ArrayList<com.aaronjeromemiller.actionbar.Card> list = new ArrayList<>();
->>>>>>> profile
 
         list.add(new com.aaronjeromemiller.actionbar.Card("drawable://" + R.drawable.chickentikkamasala, "Chicken Tikka Masala"));
         list.add(new com.aaronjeromemiller.actionbar.Card("drawable://" + R.drawable.heartybeefstew410x274, " Hearty Beef Stew"));
