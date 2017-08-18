@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                             AuthUI.EMAIL_PROVIDER,
                             AuthUI.FACEBOOK_PROVIDER,
                             AuthUI.GOOGLE_PROVIDER)
+                    .setTheme(R.style.AppTheme)
+                    .setLogo(R.drawable.logo1)
+                    //.setIsSmartLockEnabled(false)
                     .build(), RC_SIGN_IN);
         }
 
