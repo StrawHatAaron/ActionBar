@@ -28,15 +28,19 @@
                 android:text="The Menu"
                 android:textAlignment="center"/>
 
-            <android.support.design.widget.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </android.support.design.widget.AppBarLayout>
-
         </RelativeLayout>
 
 
-        <RelativeLayout
+        <ListView
+            android:id="@+id/list_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relLayoutTopBar"
+            android:layout_above="@+id/relLayoutBotBar">
+
+        </ListView>
+        
+        <!--<RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/relLayoutMiddle"
@@ -50,7 +54,7 @@
 
             </android.support.v4.view.ViewPager>
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
 
         <RelativeLayout

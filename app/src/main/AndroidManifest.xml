@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.aaronjeromemiller.actionbar">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,23 +16,26 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="name.student.MainActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="name.student.MainActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Menu.MenuActivity"></activity>
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".ActivityNotify"></activity>
-        <activity android:name=".Profile.ProfileActivity"></activity>
-        <activity android:name=".Login.LoginActivity"></activity>
-        <activity android:name=".Login.RegisterActivity"></activity>
-        <activity android:name=".Login.GoogleSignInActivity"></activity>
-        <activity android:name=".Profile.AccountSettingsActivity"></activity>
-        <activity android:name=".Profile.FoodPreferenceActivity"></activity>
-
+        <activity android:name=".Menu.MenuActivity"/>
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".ActivityNotify"/>
+        <activity android:name=".Profile.ProfileActivity"/>
+        <activity android:name=".Login.LoginActivity"/>
+        <activity android:name=".Login.RegisterActivity"/>
+        <activity android:name=".Login.GoogleSignInActivity"/>
+        <activity android:name=".Profile.AccountSettingsActivity"/>
+        <activity android:name=".Profile.FoodPreferenceActivity"/>
+        <activity android:name=".Menu.MenuDetailActivity">
+        </activity>
     </application>
 
 </manifest>

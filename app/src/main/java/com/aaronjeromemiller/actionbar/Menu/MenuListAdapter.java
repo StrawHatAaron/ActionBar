@@ -36,9 +36,51 @@ public class MenuListAdapter extends ArrayAdapter<Menu> {
     private int mResource;
     private int lastPosition = -1;
 
+    //NEW IMPLEMENTATION FOR ACTIVITY TO FRAGMENT ON CLICK
+    private String[] foodNames;
+    private int[] foodPics;
+
+    public MenuListAdapter(Context context, String[] foodNames, int[] foodPics){
+        super(context, R.layout.menu_view_item);
+        this.foodNames = foodNames;
+        this.foodPics = foodPics;
+        this.mContext = context;
+    }
+    @Override
+    public int getCount(){
+        return foodNames.length;
+    }
+    @NonNull
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent){
+        ViewHolder mViewHolder = new ViewHolder();
+        if(convertView==null) {
+            LayoutInflater mInflater = (LayoutInflater) mContext
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = mInflater.inflate(R.layout.menu_view_item, parent, false);
+            mViewHolder.mFoodPic = (ImageView) convertView.findViewById(R.id.bio_image);
+            mViewHolder.mFoodName = (TextView) convertView.findViewById(R.id.bio_text);
+            convertView.setTag(mViewHolder);
+        }
+        else{
+            mViewHolder = (ViewHolder) convertView.getTag();
+        }
+            mViewHolder.mFoodPic.setImageResource(foodPics[position]);
+            mViewHolder.mFoodName.setText(foodNames[position]);
+
+        return convertView;
+    }
+
+    static class ViewHolder{
+        ImageView mFoodPic;
+        TextView mFoodName;
+    }
+    //************************************************************
+
+
     /**
      * Holds variables in a View
-     */
+     TODO
     private static class ViewHolder {
         TextView title;
         TextView description;
@@ -51,7 +93,7 @@ public class MenuListAdapter extends ArrayAdapter<Menu> {
      * @param context
      * @param resource
      * @param objects
-     */
+     TODO
     public MenuListAdapter(Context context, int resource, ArrayList<Menu> objects) {
         super(context, resource, objects);
         mContext = context;
@@ -61,7 +103,8 @@ public class MenuListAdapter extends ArrayAdapter<Menu> {
         setupImageLoader();
     }
 
-    @NonNull
+    /*********** Commented out for the TODO implement activity
+     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -146,7 +189,7 @@ public class MenuListAdapter extends ArrayAdapter<Menu> {
             return convertView;
         }
 
-    }
+    }*/
 
     /**
      * Required for setting up the Universal Image loader Library

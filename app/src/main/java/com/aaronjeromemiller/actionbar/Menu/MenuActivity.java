@@ -8,19 +8,23 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-//<<<<<<< HEAD:app/src/main/java/com/aaronjeromemiller/actionbar/Menu/MenuActivity.java
 import com.aaronjeromemiller.actionbar.ActivityNotify;
 import com.aaronjeromemiller.actionbar.HomeActivity;
 import com.aaronjeromemiller.actionbar.MainActivity;
+import com.aaronjeromemiller.actionbar.MenuListAdapter;
 import com.aaronjeromemiller.actionbar.ProfileActivity;
 import com.aaronjeromemiller.actionbar.R;
-//=======
-//>>>>>>> profile:app/src/main/java/com/aaronjeromemiller/actionbar/MenuActivity.java
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 import com.aaronjeromemiller.actionbar.Utils.SectionsPagerAdapter;
+
+//<<<<<<< HEAD:app/src/main/java/com/aaronjeromemiller/actionbar/Menu/MenuActivity.java
+//=======
+//>>>>>>> profile:app/src/main/java/com/aaronjeromemiller/actionbar/MenuActivity.java
 
 /**
  * Created by aaronmiller on 7/26/17.
@@ -34,20 +38,50 @@ public class MenuActivity  extends AppCompatActivity {
     private ViewPager mViewPager;
     private ListView mListView;
 
+    //private Toolbar mToolbar;
+    private ListView listMenu;
+
+    String[] foodNames = {"1.mac and chesse","2.beer","3.pizza","4.toast","5.protien bar","6.salad","7.nutri shake","8.apple"};
+    int[] foodPics = {R.drawable.foodonfork,
+            R.drawable.foodonfork,
+            R.drawable.foodonfork,
+            R.drawable.foodonfork,
+            R.drawable.foodonfork,
+            R.drawable.foodonfork,
+            R.drawable.foodonfork,
+            R.drawable.foodonfork};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
-
+/****Frag implement for activity******8*/
+        //mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        listMenu = (ListView) findViewById(R.id.list_menu);
+        MenuListAdapter menuListAdapter = new MenuListAdapter(MenuActivity.this, foodNames, foodPics);
+        listMenu.setAdapter(menuListAdapter);
+        listMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent mIntent = new Intent(MenuActivity.this, MenuDetailActivity.class);
+                mIntent.putExtra("foodName", foodNames[i]);
+                mIntent.putExtra("foodPic", foodPics[i]);
+                startActivity(mIntent);
+            }
+        });
         TextView title = (TextView) findViewById(R.id.menuTitle);
         title.setText("Menu");
 
-//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        setupViewPager(mViewPager);
-
-        //try to setup onClickListener for all items in the array
+/***********Frag imp act*************/
+//
+////        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+//
+        //mViewPager = (ViewPager) findViewById(R.id.container);
+        //setupViewPager(mViewPager);
+//
+//        //try to setup onClickListener for all items in the array
 
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
@@ -88,9 +122,9 @@ public class MenuActivity  extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MenuFragment());
+        //adapter.addFragment(new MenuFragment());
         //adapter.addFragment(new com.aaronjeromemiller.actionbar.VideosFragment());
         //adapter.addFragment(new com.aaronjeromemiller.actionbar.MoreFragment());
-        viewPager.setAdapter(adapter);
+        //viewPager.setAdapter(adapter);
     }
 }
