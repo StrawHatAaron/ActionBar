@@ -37,26 +37,24 @@ public class MenuActivity  extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private ListView mListView;
-
-    //private Toolbar mToolbar;
     private ListView listMenu;
 
-    String[] foodNames = {"1.mac and chesse","2.beer","3.pizza","4.toast","5.protien bar","6.salad","7.nutri shake","8.apple"};
-    int[] foodPics = {R.drawable.foodonfork,
-            R.drawable.foodonfork,
-            R.drawable.foodonfork,
-            R.drawable.foodonfork,
-            R.drawable.foodonfork,
-            R.drawable.foodonfork,
-            R.drawable.foodonfork,
-            R.drawable.foodonfork};
+    private String[] foodNames = {"1.mac and chesse","2.beer","3.pizza","4.toast","5.protien bar","6.salad","7.nutri shake","8.apple"};
+    private int[] foodPics = {R.drawable.ic_chat_black_24dp,
+            R.drawable.ic_backarrow,
+            R.drawable.ic_chat_black_24dp,
+            R.drawable.ic_backarrow,
+            R.drawable.ic_chat_black_24dp,
+            R.drawable.ic_backarrow,
+            R.drawable.ic_chat_black_24dp,
+            R.drawable.ic_backarrow};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
-/****Frag implement for activity******8*/
+/****Frag implement for activity*******/
         //mToolbar = (Toolbar) findViewById(R.id.toolbar);
         listMenu = (ListView) findViewById(R.id.list_menu);
         MenuListAdapter menuListAdapter = new MenuListAdapter(MenuActivity.this, foodNames, foodPics);
@@ -65,13 +63,13 @@ public class MenuActivity  extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent mIntent = new Intent(MenuActivity.this, MenuDetailActivity.class);
-                mIntent.putExtra("foodName", foodNames[i]);
-                mIntent.putExtra("foodPic", foodPics[i]);
+                //mIntent.putExtra("foodName", foodNames[1]);
+                //mIntent.putExtra("foodPic", foodPics[1]);
                 startActivity(mIntent);
             }
         });
         TextView title = (TextView) findViewById(R.id.menuTitle);
-        title.setText("Menu");
+        //title.setText("Menu");
 
 
 /***********Frag imp act*************/

@@ -19,14 +19,13 @@
             android:id="@+id/relLayoutTopBar"
             android:layout_alignParentTop="true">
 
-            <android.support.design.widget.AppBarLayout
+            <TextView
+                android:id="@+id/homeTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-
-            </android.support.design.widget.AppBarLayout>
-
+                android:layout_height="match_parent"
+                android:text="Home"
+                android:textSize="36sp"
+                android:textAlignment="center"/>
         </RelativeLayout>
 
 
@@ -36,16 +35,6 @@
             android:id="@+id/relLayoutMiddle"
             android:layout_below="@+id/relLayoutTopBar"
             android:layout_above="@+id/relLayoutBotBar">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="36sp"
-                android:id="@+id/homeTitle"
-                android:textAlignment="center"
-                android:text="Home"
-                android:layout_marginTop="30dp"/>
-
         </RelativeLayout>
 
 

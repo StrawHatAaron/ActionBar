@@ -8,40 +8,51 @@
     tools:context="com.aaronjeromemiller.actionbar.MainActivity"
     android:background="@color/colorWhite">
 
-
     <RelativeLayout
+        android:id="@+id/relLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/relLayout">
-
-        <include layout="@layout/layout_center_profile"/>
-
+        android:layout_height="match_parent">
         <RelativeLayout
+            android:id="@+id/relLayoutTopBar"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_above="@+id/relLayoutMiddle">
+            <TextView
+                android:id="@+id/homeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Profile"
+                android:textSize="36sp"
+                android:textAlignment="center"/>
+        </RelativeLayout>
+
+        <!-- GENERATES ERRORS
+        <ListView
             android:id="@+id/relLayoutMiddle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@+id/relLayoutTopBar"
             android:layout_above="@+id/relLayoutBotBar">
 
-        </RelativeLayout>
+        </ListView>-->
 
         <RelativeLayout
+            android:id="@+id/relLayoutBotBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/relLayoutBotBar"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true">
 
             <android.support.design.widget.BottomNavigationView
+                android:id="@+id/botNavViewBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/botNavViewBar"
                 android:background="@drawable/border_bottom"
                 app:menu="@menu/bottom_navigation_menu">
-
             </android.support.design.widget.BottomNavigationView>
 
         </RelativeLayout>
 
-    </RelativeLayout>
+</RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

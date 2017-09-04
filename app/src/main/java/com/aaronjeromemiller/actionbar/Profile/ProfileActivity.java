@@ -6,15 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.aaronjeromemiller.actionbar.ActivityNotify;
 import com.aaronjeromemiller.actionbar.HomeActivity;
@@ -23,7 +18,7 @@ import com.aaronjeromemiller.actionbar.Menu.MenuActivity;
 import com.aaronjeromemiller.actionbar.R;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 
-//import com.aaronjeromemiller.actionbar.MenuActivity;
+//import com.aaronjeromemiller.actionbar.Menu.MenuActivity;
 
 /**
  * Created by aaronmiller on 7/26/17.
@@ -42,19 +37,18 @@ public class ProfileActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        logoutButton = (Button) findViewById(R.id.btn_logout);
+       //logoutButton = (Button) findViewById(R.id.btn_logout);
         //TextView title = (TextView) findViewById(R.id.profileTitle);
         //title.setText("Profile");
-
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
-        logoutButton.setOnClickListener(new View.OnClickListener() {
+/*        logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(ProfileActivity.this, "Toasted", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
 
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(4);
@@ -89,12 +83,12 @@ public class ProfileActivity extends AppCompatActivity
         });
 
 
-        setupAccountSettingsToolbar();
-        setupFoodPreferenceToolbar();
+        //setupAccountSettingsToolbar();
+        //setupFoodPreferenceToolbar();
     }
 
     // Setting up Account Settings Toolbar
-    private void setupAccountSettingsToolbar(){
+    /*private void setupAccountSettingsToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.profileToolBar);
         setSupportActionBar(toolbar);
 
@@ -123,6 +117,6 @@ public class ProfileActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-    }
+    }*/
 
 }

@@ -31,52 +31,51 @@ import java.util.ArrayList;
 public class MenuListAdapter extends ArrayAdapter<Menu> {
 
     private static final String TAG = "CustomListAdapter";
-
     private Context mContext;
-    private int mResource;
-    private int lastPosition = -1;
-
-    //NEW IMPLEMENTATION FOR ACTIVITY TO FRAGMENT ON CLICK
     private String[] foodNames;
     private int[] foodPics;
+//    private int mResource;
+//    private int lastPosition = -1;
+    //NEW IMPLEMENTATION FOR ACTIVITY TO FRAGMENT ON CLICK
 
-    public MenuListAdapter(Context context, String[] foodNames, int[] foodPics){
+    public MenuListAdapter(Context context, String[] foodNames, int[] foodPics) {
         super(context, R.layout.menu_view_item);
         this.foodNames = foodNames;
         this.foodPics = foodPics;
         this.mContext = context;
     }
+
     @Override
-    public int getCount(){
+    public int getCount() {
         return foodNames.length;
     }
+
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder mViewHolder = new ViewHolder();
-        if(convertView==null) {
+        if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.menu_view_item, parent, false);
-            mViewHolder.mFoodPic = (ImageView) convertView.findViewById(R.id.bio_image);
-            mViewHolder.mFoodName = (TextView) convertView.findViewById(R.id.bio_text);
+            mViewHolder.mFoodPics = (ImageView) convertView.findViewById(R.id.bio_image);
+            mViewHolder.mFoodNames = (TextView) convertView.findViewById(R.id.bio_text);
             convertView.setTag(mViewHolder);
-        }
-        else{
+        } else {
             mViewHolder = (ViewHolder) convertView.getTag();
         }
-            mViewHolder.mFoodPic.setImageResource(foodPics[position]);
-            mViewHolder.mFoodName.setText(foodNames[position]);
+        mViewHolder.mFoodPics.setImageResource(foodPics[position]);
+        mViewHolder.mFoodNames.setText(foodNames[position]);
 
         return convertView;
     }
 
-    static class ViewHolder{
-        ImageView mFoodPic;
-        TextView mFoodName;
+    static class ViewHolder {
+        ImageView mFoodPics;
+        TextView mFoodNames;
     }
     //************************************************************
-
+}
 
     /**
      * Holds variables in a View
@@ -193,7 +192,7 @@ public class MenuListAdapter extends ArrayAdapter<Menu> {
 
     /**
      * Required for setting up the Universal Image loader Library
-     */
+
     private void setupImageLoader(){
         // UNIVERSAL IMAGE LOADER SETUP
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
@@ -209,5 +208,4 @@ public class MenuListAdapter extends ArrayAdapter<Menu> {
 
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
-    }
-}
+    }*/

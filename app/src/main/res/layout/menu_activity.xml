@@ -10,63 +10,45 @@
 
 
     <RelativeLayout
+        android:id="@+id/relLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/relLayout">
+        android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/relLayoutTopBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/relLayoutTopBar"
             android:layout_alignParentTop="true">
 
             <TextView
+                android:id="@+id/menuTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="36sp"
-                android:id="@+id/menuTitle"
                 android:text="The Menu"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:textSize="36sp"/>
 
         </RelativeLayout>
-
 
         <ListView
             android:id="@+id/list_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/relLayoutTopBar"
-            android:layout_above="@+id/relLayoutBotBar">
+            android:layout_above="@+id/relLayoutBotBar"
+            android:layout_below="@+id/relLayoutTopBar">
 
         </ListView>
-        
-        <!--<RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/relLayoutMiddle"
-            android:layout_below="@+id/relLayoutTopBar"
-            android:layout_above="@+id/relLayoutBotBar">
-
-            <android.support.v4.view.ViewPager
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:id="@+id/container">
-
-            </android.support.v4.view.ViewPager>
-
-        </RelativeLayout>-->
-
 
         <RelativeLayout
+            android:id="@+id/relLayoutBotBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/relLayoutBotBar"
             android:layout_alignParentBottom="true">
 
             <android.support.design.widget.BottomNavigationView
+                android:id="@+id/botNavViewBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/botNavViewBar"
                 android:background="@drawable/border_bottom"
                 app:menu="@menu/bottom_navigation_menu">
 
@@ -77,7 +59,6 @@
 
 
     </RelativeLayout>
-
 
 
 </android.support.design.widget.CoordinatorLayout>

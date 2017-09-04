@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-            <include layout="@layout/snippet_top_profilebar" />
+            <!--<include layout="@layout/snippet_top_profilebar" />-->
 
         </RelativeLayout>
 
@@ -38,14 +38,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="25dp"
                     android:layout_weight="25">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/profile_image"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_centerVertical="true"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp" />
 
                 </RelativeLayout>
 
@@ -82,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/relLayout3">
 
-            <Button
+            <!--<Button
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,7 +82,7 @@
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/white_round_button"
                 android:padding="12dp"
-                android:text="Logout" />
+                android:text="Logout" />-->
 
         </RelativeLayout>
 
