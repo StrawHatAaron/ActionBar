@@ -17,7 +17,6 @@ import com.aaronjeromemiller.actionbar.ActivityNotify;
 import com.aaronjeromemiller.actionbar.HomeActivity;
 import com.aaronjeromemiller.actionbar.MainActivity;
 import com.aaronjeromemiller.actionbar.MenuListAdapter;
-import com.aaronjeromemiller.actionbar.ProfileActivity;
 import com.aaronjeromemiller.actionbar.R;
 import com.aaronjeromemiller.actionbar.Utils.BottomNavigationViewHelper;
 import com.aaronjeromemiller.actionbar.Utils.SectionsPagerAdapter;
@@ -35,9 +34,10 @@ public class MenuActivity  extends AppCompatActivity {
     private final String TAG = "MenuActivity";
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
-    private ListView mListView;
+    //private ViewPager mViewPager;
+    //private ListView mListView;
     private ListView listMenu;
+    public TextView itemsInCart;
 
     private String[] foodNames = {"1.mac and chesse","2.beer","3.pizza","4.toast","5.protien bar","6.salad","7.nutri shake","8.apple"};
     private int[] foodPics = {R.drawable.ic_chat_black_24dp,
@@ -56,6 +56,7 @@ public class MenuActivity  extends AppCompatActivity {
         setContentView(R.layout.menu_activity);
 /****Frag implement for activity*******/
         //mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        itemsInCart = (TextView) findViewById(R.id.items_in_cart);
         listMenu = (ListView) findViewById(R.id.list_menu);
         MenuListAdapter menuListAdapter = new MenuListAdapter(MenuActivity.this, foodNames, foodPics);
         listMenu.setAdapter(menuListAdapter);
@@ -71,7 +72,6 @@ public class MenuActivity  extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.menuTitle);
         //title.setText("Menu");
 
-
 /***********Frag imp act*************/
 //
 ////        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -81,13 +81,14 @@ public class MenuActivity  extends AppCompatActivity {
 //
 //        //try to setup onClickListener for all items in the array
 
-
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.botNavViewBar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(1);
         menuItem.setChecked(true);
+
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -109,7 +110,7 @@ public class MenuActivity  extends AppCompatActivity {
                         startActivity(intentNotify);
                         break;
                     case R.id.ic_profile:
-                        Intent intentProfile = new Intent(MenuActivity.this, ProfileActivity.class);
+                        Intent intentProfile = new Intent(MenuActivity.this, com.aaronjeromemiller.actionbar.Profile.ProfileActivity.class);
                         startActivity(intentProfile);
                         break;
                 }

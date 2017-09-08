@@ -25,7 +25,7 @@ public class ActivityNotify extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notify_activity);
+        setContentView(R.layout.activity_notify);
 
         TextView title = (TextView) findViewById(R.id.notifyTitle);
         title.setText("Notifications");

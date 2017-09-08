@@ -31,11 +31,14 @@ public class ProfileActivity extends AppCompatActivity
     private TextView title;
     private Button logoutButton;
     private Context mContext = ProfileActivity.this;
+    public TextView itemsInCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        itemsInCart = (TextView) findViewById(R.id.items_in_cart);
 
        //logoutButton = (Button) findViewById(R.id.btn_logout);
         //TextView title = (TextView) findViewById(R.id.profileTitle);
